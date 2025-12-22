@@ -5,9 +5,11 @@
 This project is about creating a simple Vehicle Rental System database using SQL.
 The main purpose is to show how tables are connected using primary keys, foreign keys, and how real-life problems are solved using SQL queries. The goal is to demonstrate a clear understanding of ERD relationships (1:1, 1:N, M:1) and complex SQL queries using JOINs, EXISTS, and data aggregation.
 
-##### 🌐 [ERD Diagram Link](https://drawsql.app/teams/hydra-15/diagrams/vehicles-rental)
+#### 🌐 [ERD Diagram Link](https://drawsql.app/teams/hydra-15/diagrams/vehicles-rental)
 
 ## Database Design & Business Logic
+
+### Tables
 
 - **Users**: Stores information about system users such as Admins and Customers.Each user has a unique email and basic contact details.
 - **Vehicles**: Stores vehicle information including registration number, vehicle type (car, bike, truck), and availability status.
