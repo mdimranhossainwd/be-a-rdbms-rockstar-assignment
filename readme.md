@@ -4,7 +4,7 @@
 
 This project focuses on designing and implementing a simple Vehicle Rental System database using SQL. The primary objective of this project is to demonstrate how multiple database tables are connected through Primary Keys and Foreign Keys to maintain data integrity and represent real-world relationships.The project clearly explains ERD relationships such as One-to-One (1:1), One-to-Many (1:N), and Many-to-One (M:1) using practical examples from a vehicle rental scenario.
 
-#### 🌐 [ERD Diagram Link](https://drawsql.app/teams/hydra-15/diagrams/vehicles-rental)
+#### 🌐 [ERD Design Link](https://drawsql.app/teams/hydra-15/diagrams/vehicles-rental)
 
 ## Database Design & Business Logic
 
