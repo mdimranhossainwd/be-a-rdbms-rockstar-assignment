@@ -47,13 +47,13 @@ CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     name VARCHAR(150) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE CHECK (email = LOWER(email)),
-    phone_number VARCHAR(20) UNIQUE NOT NULL,
+    phone VARCHAR(20) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     role user_role NOT NULL DEFAULT 'Customer'
 );
 
 <!-- Insert User Tables Data -->
-INSERT INTO users (name, email, phone_number, role, password)
+INSERT INTO users (name, email, phone, role, password)
 VALUES
   ('Alice', 'alice@example.com', '1234567890', 'Customer', '12345678');
 
