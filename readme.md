@@ -69,8 +69,8 @@ CREATE TABLE vehicles (
     type vehicle_type NOT NULL,
     model VARCHAR(100) NOT NULL,
     registration_number VARCHAR(100) NOT NULL UNIQUE,
-    rental_price_per_day DECIMAL(10) NOT NULL CHECK (rental_price_per_day > 0),
-    availability_status vehicle_status NOT NULL DEFAULT 'available'
+    rental_price DECIMAL(10) NOT NULL CHECK (rental_price > 0),
+    status vehicle_status NOT NULL DEFAULT 'available'
 );
 
 <!-- Insert Vehicles Tables Data -->
@@ -79,8 +79,8 @@ INSERT INTO vehicles (
   type,
   model,
   registration_number,
-  rental_price_per_day,
-  availability_status
+  rental_price,
+  status
 )
 VALUES
   ('Toyota Corolla', 'car', '2022', 'ABC-123', 50.00, 'available');
@@ -98,7 +98,7 @@ CREATE TABLE bookings (
       REFERENCES vehicles(vehicle_id) ON DELETE CASCADE,
     start_date DATE NOT NULL,
     end_date DATE NOT NULL CHECK (start_date <= end_date),
-    booking_status booking_status NOT NULL DEFAULT 'pending',
+    status booking_status NOT NULL DEFAULT 'pending',
     total_cost DECIMAL(10) NOT NULL
 );
 
@@ -108,7 +108,7 @@ INSERT INTO bookings (
   vehicle_id,
   start_date,
   end_date,
-  booking_status,
+  status,
   total_cost
 )
 VALUES
