@@ -24,10 +24,10 @@ This project focuses on designing and implementing a simple Vehicle Rental Syste
 
 The following queries are implemented in `queries.sql`:
 
- 1. **JOIN**: Retrieves booking details combined with customer and vehicle names.
+1.  **JOIN**: Retrieves booking details combined with customer and vehicle names.
 
 ```sql
-SELECT 
+SELECT
     b.booking_id,
     u.name AS customer_name,
     v.name AS vehicle_name,
@@ -39,43 +39,40 @@ INNER JOIN users u ON b.user_id = u.user_id
 INNER JOIN vehicles v ON b.vehicle_id = v.vehicle_id;
 ```
 
-#### Explaination: This query shows all booking records from the bookings table.It joins the users table to get the customer’s name.It also joins the vehicles table to get the vehicle name.In short, it displays each booking along with who booked it and which vehicle was booked.
-
-
-
+#### Explanation: This query shows all booking records from the bookings table.It joins the users table to get the customer’s name.It also joins the vehicles table to get the vehicle name.In short, it displays each booking along with who booked it and which vehicle was booked.
 
 2.  **EXISTS**: Identifies vehicles that have never been booked.
 
 ```sql
-SELECT 
+SELECT
     *
 FROM vehicles v
 WHERE NOT EXISTS (
-    SELECT 1 
-    FROM bookings b 
+    SELECT 1
+    FROM bookings b
     WHERE b.vehicle_id = v.vehicle_id
 ) ORDER BY v.vehicle_id;
 
 ```
 
-#### Explaination: It checks each vehicle in the vehicles table and looks into the bookings table to see if any booking exists for that vehicle.If no matching booking is found, NOT EXISTS returns true and the vehicle is shown.
+#### Explanation: It checks each vehicle in the vehicles table and looks into the bookings table to see if any booking exists for that vehicle.If no matching booking is found, NOT EXISTS returns true and the vehicle is shown.
 
 3.  **WHERE**: Filters available vehicles of a specific type (e.g., 'car').
 
 ```sql
-SELECT 
+SELECT
     *
 FROM vehicles v
 WHERE v.type = 'car'
   AND status = 'available';
 ```
 
-#### Explaination: It only selects vehicles whose type is car and whose status is available. In simple words, it lists all cars that are currently available for booking.
+#### Explanation: It only selects vehicles whose type is car and whose status is available. In simple words, it lists all cars that are currently available for booking.
 
 4.  **GROUP BY & HAVING**: Find the total number of bookings for each vehicle and display only those vehicles that have more than 2 bookings.
 
 ```sql
-SELECT 
+SELECT
     v.name AS vehicle_name,
     COUNT(b.booking_id) AS total_bookings
 FROM vehicles v
@@ -84,4 +81,4 @@ GROUP BY v.vehicle_id, v.name
 HAVING COUNT(b.booking_id) > 2;
 ```
 
-#### Explaination: This query shows each vehicle name along with how many times it has been booked.It uses a LEFT JOIN so all vehicles are considered, even if some have no bookings.The data is grouped by vehicle, and only vehicles with more than 2 bookings are shown.
+#### Explanation: This query shows each vehicle name along with how many times it has been booked.It uses a LEFT JOIN so all vehicles are considered, even if some have no bookings.The data is grouped by vehicle, and only vehicles with more than 2 bookings are shown.
